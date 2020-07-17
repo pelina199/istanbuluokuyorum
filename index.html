@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Sans"
+      rel="stylesheet"
+      type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; padding: 0; }
+      #map { position: fixed; top: 0; bottom: 0; width: 60%;}
+      img { max-width: 100%; height: auto; padding: 3px; border: 1px solid #a2abb4;
+         }
+      iframe {
+        width: 100%;        
+      }
+       @media (max-width: 800px) {
+         #map {  width: 50%;}
+      }
+        
+    </style>
+     
+  </head>
+
+  <body>
+    
+    <style>
+      #features {
+        width: 40%;
+        margin-left: 60%;
+        font-family: "PT Sans", sans-serif;
+        overflow-y: scroll;
+        background-color: #fef5f7;
+        color: #516576;
+      }
+      h2 {
+        text-align: center;
+        font-family: "Josefin Sans", sans-serif;
+      }
+      h3 {
+        text-align: center;
+        font-family: "Josefin Sans", sans-serif;
+        color: #52728e;
+      }
+      section {
+        padding: 25px 50px;
+        line-height: 25px;
+        border-bottom: 1px solid #ddd;
+        opacity: 0.25;
+        font-size: 13px;
+      }
+      section.active {
+        opacity: 1;
+      }
+      section:last-child {
+        border-bottom: none;
+        margin-bottom: 400px;
+      }
+      .fin {
+        opacity: 0;
+      }
+      @media (max-width: 800px) {
+      iframe {
+        max-width: 100%;
+        height: auto;
+        
+        }
+      section {
+        line-height: 15px;
+        font-size: 10px;
+        padding: 10px;
+        }
+       #features {
+        width: 50%;
+        margin-left: 50%; 
+      }
+    </style>
+
+    <div id='map'></div> 
+        <div id='features'>
+        <section id='intro' class='active'>
+        <h2>Beyoğlu Hafızasında Çocukluk</h2>
+        <p> 
+          Burası dünyanın eski yerleşimlerinden biri. Tarih boyunca pek çok farklı insan, Beyoğlu'nda yaşamış, 
+          gezmiş, eğlenmiş ve oyunlar oynamış. Beyoğlu'ndan yolu geçenler, tozuna ayağı değenler hep hikayeler 
+          anlatmış, izler bırakmışlar ona. <br><br> Beyoğlu'nda herkesin, hepimizin bir hikayesi var. 
+          </p>
+          </section>
+          
+    <section id="gezi">
+        <h3>Gezi Parkı</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/EW2Lcy4FOFY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
+
+    <section id="taksim">
+        <h3>Taksim Meydanı</h3>
+        <img src="http://uploads.knightlab.com/storymapjs/93573c32cfef3f6424c2a01e1fbc4c2f/beyoglu/_images/nakiye elgun.jpg"/>
+      </section>
+
+    <section id="esayan">
+        <h3>Esayan Okulu</h3>
+        <img src="http://uploads.knightlab.com/storymapjs/93573c32cfef3f6424c2a01e1fbc4c2f/beyoglu/_images/esayan okulu.jpg"/>
+        <p> Mıgırdiç ve Hovannes Esayan kardeşlerin bağışıyla inşa edilen Esayan Okulu, 
+          1895 yılında karma eğitimle öğretime başladı. <br/></p>
+      </section>
+          
+     <section id="beyoglusk">
+        <h3>Beyoğlu Spor Kulübü</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/rP2csJv7AIQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
+          
+      <section id="tarlabasi">
+        <h3>Tarlabaşı Bulvarı</h3>
+        
+      </section>
+          
+    <section id="ttm">
+        <h3>Tarlabaşı Toplum Merkezi</h3>
+      
+      </section>
+
+    <section id="galatasaray">
+        <h3>Galatasaray Lisesi</h3>
+
+        <p> İstanbul'un en eski eğitim kurumlarından biri. 1481 yılından beri eğitim veriyor. <br/></p>
+      </section>
+                
+    <section id="postacilar">
+        <h3>Postacılar Yokuşu</h3>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/DdMEQcc5Yp0" frameborder="0" allow="accelerometer; autoplay=0; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </section>
+          
+     <section id="kumbaraci">
+        <h3>Kumbaracı Yokuşu</h3>
+       
+      </section>
+          
+     <section id="stad">
+        <h3>Kasımpaşa Stadı</h3>
+       
+      </section>
+         
+    <section id="tepebasi">
+        <h3>Tepebaşı</h3>
+        <img src="http://uploads.knightlab.com/storymapjs/93573c32cfef3f6424c2a01e1fbc4c2f/beyoglu/_images/tepebasi bahcesi.jpg"/>
+      <p> <i> Tepebaşı Bahçesi </i> <br/></p>
+      </section>
+               
+     <section id="kule">
+        <h3>Galata Kulesi</h3>
+        <img src="http://uploads.knightlab.com/storymapjs/93573c32cfef3f6424c2a01e1fbc4c2f/beyoglu/_images/Galata Kulesi.jpg"/>
+        <p> Cenevizliler tarafından şehri korumak için 1348 yılında yapıldığı tahmin edilen 
+          Galata Surları'nın kulelerinden biri.  <br/></p>
+      </section>
+          
+    <section id="sur">
+        <h3>Galata Surları</h3>
+        <img src="http://uploads.knightlab.com/storymapjs/93573c32cfef3f6424c2a01e1fbc4c2f/beyoglu/_images/galata-surlari-yikiliyor-1514824378.jpg"/>
+     
+          </section>
+            
+      <section id="kamondo">
+        <h3>Kamondo Merdivenleri</h3>
+
+        <p> 1870'li yıllardan Abraham Salomon Kamondo tarafından yaptırıldı. Kamondo'nun merdivenleri 
+          Alman Okulu'na giden torunlarının yokuştan rahat inip çıksınlar diye yaptırdığı söylenir.  <br/></p>
+      </section>
+          
+       <section id="karakoy">
+        <h3>Karaköy Meydanı</h3>
+          <p><span class="fin"> Burası dünyanın eski yerleşimlerinden biri. Tarih boyunca pek çok farklı insan, Beyoğlu'nda yaşamış, 
+          gezmiş, eğlenmiş ve oyunlar oynamış. <br><br>Beyoğlu'ndan yolu geçenler, tozuna ayağı değenler hep hikayeler 
+          anlatmış, izler bırakmışlar ona.<br><br><br></span></p>
+      </section>
+          
+      <section id="end">
+       <h3> <span class="fin"> son </span> </h3>
+        <p><span class="fin"> Burası dünyanın eski yerleşimlerinden biri. Tarih boyunca pek çok farklı insan, Beyoğlu'nda yaşamış, 
+          gezmiş, eğlenmiş ve oyunlar oynamış. <br><br>Beyoğlu'ndan yolu geçenler, tozuna ayağı değenler hep hikayeler 
+          anlatmış, izler bırakmışlar ona. <br><br><br>Beyoğlu'nda herkesin, hepimizin bir hikayesi var.<br><br><br></span></p>
+      </section>
+               
+    </div>
+    
+
+      <script>
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYXNwZWwxNiIsImEiOiJjazFrcTFreWQxaWQwM25wNnB5OGtob2cyIn0.z-P2ljsucUiDSe9lpECDMA';
+
+    // create the map
+    var map = window.map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/aspel16/ck4libn2s1e0u1cs4pqljlm2n',
+      
+        center: [28.97819, 41.0339],
+        zoom: 12,
+        bearing: 2,
+        pitch: 0,
+        hash: true,
+        container: 'map',
+        antialias: true }
+    );
+
+    // Display buildings in 3D
+    map.on('load', function() {
+
+    var layers = map.getStyle().layers;
+    var labelLayerId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
+            labelLayerId = layers[i].id; 
+            break; 
+    }}
+
+    map.addLayer({
+        'id': '3d-buildings',
+        'source': 'composite',
+        'source-layer': 'building',
+        'filter': ['==', 'extrude', 'true'],
+        'type': 'fill-extrusion',
+        'minzoom': 15,
+        'paint': {
+        'fill-extrusion-color': '#aaa',
+        // use an 'interpolate' expression to add a smooth transition effect to the
+        // buildings as the user zooms in
+        'fill-extrusion-height': ["interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "height"]],
+        'fill-extrusion-base': ["interpolate", ["linear"], ["zoom"], 15, 0, 15.05, ["get", "min_height"]],
+        'fill-extrusion-opacity': .6 }
+    }, labelLayerId); 
+   
+     
+        
+        });
+        
+        
+    // SECTIONS
+    var chapters = {
+        'intro': {
+        center: [28.97819, 41.0339],
+        zoom: 12,
+        bearing: 2,
+        pitch: 0,
+        },
+        'gezi': {
+        duration: 6000,
+        center: [28.986663, 41.037972],
+        bearing: -30,
+        zoom: 16,
+        pitch: 30,
+        speed: 0.3
+        },
+        'taksim': {
+        duration: 6000,
+        bearing: 0,
+        center: [28.985087, 41.036925],
+        bearing: -40,
+        zoom: 16,
+        pitch: 0,
+        speed: 0.1
+        },
+        'esayan': {
+        duration: 6000,
+        center: [28.984048, 41.035048],
+        bearing: -30,
+        zoom: 18,
+        pitch: 30,
+        speed: 0.3
+        },
+        'beyoglusk': {
+        duration: 6000,
+        bearing: 0,
+        center: [28.982639, 41.034484],
+        bearing: 0,
+        zoom: 18,
+        pitch: 0,
+        speed: 0.25
+        },
+        'tarlabasi': {
+        duration: 6000,
+        bearing: -15,
+        center: [28.979600, 41.036199],
+        zoom: 15.6,
+        pitch: 0,
+        speed: 0.3
+        },
+        'ttm': {
+        duration: 6000,
+        center: [28.978000, 41.037861],
+        bearing: -30,
+        zoom: 18,
+        pitch: 30,
+        speed: 0.3
+        },
+        'galatasaray': {
+        duration: 6000,
+        center: [28.97861, 41.032717],
+        bearing: -30,
+        zoom: 16.8,
+        pitch: 30,
+        speed: 0.2
+        },
+        'postacilar': {
+        duration: 6000,
+        bearing: 0,
+        center: [28.977317, 41.029945],
+        bearing: -75,
+        zoom: 16.7,
+        pitch: 20,
+        speed: 0.2
+        },
+        'kumbaraci': {
+        duration: 6000,
+        center: [28.977347, 41.028009],
+        bearing: -40,
+        zoom: 16.2,
+        pitch: 0,
+        speed: 0.3
+        },
+        'stad': {
+        duration: 6000,
+        center: [28.973346, 41.032851],    
+        bearing: -40,
+        zoom: 16.2,
+        pitch: 10,
+        speed: 0.3
+        },
+        'tepebasi': {
+        duration: 6000,
+        center: [28.972728, 41.030601],
+        bearing: -40,
+        zoom: 16,
+        pitch: 10,
+        speed: 0.3
+        },
+        'kule': {
+        duration: 6000,
+        center: [28.974249, 41.025854,],
+        bearing: -30,
+        zoom: 16.2,
+        pitch: 50,
+        speed: 0.3  
+        },
+        'sur': {
+        duration: 6000,
+        center: [28.971241, 41.023993],
+        bearing: -30.8,
+        zoom: 16.8,
+        pitch: 12,
+        speed: 0.3
+        },
+        'kamondo': {
+        duration: 6000,
+        center: [28.973748, 41.023945],
+        bearing: -10,
+        zoom: 18,
+        pitch: 20,
+        speed: 0.2
+        },
+        'karakoy': {
+        duration: 6000,
+        bearing: 0,
+        center: [28.975287, 41.022190],
+        zoom: 16.2,
+        pitch: 0,
+        speed: 0.3
+        },
+        'end': {
+        duration: 6000,
+        bearing: 0,
+        center: [28.975287, 41.022190],
+        zoom: 16,
+        pitch: 0
+        }
+
+        };
+        
+        
+
+    //Function to run the story
+    // On every scroll event, check which element is on screen
+    window.onscroll = function() {
+        var chapterNames = Object.keys(chapters);
+        for (var i = 0; i < chapterNames.length; i++) {
+            var chapterName = chapterNames[i];
+                if (isElementOnScreen(chapterName)) {
+                    setActiveChapter(chapterName);
+                    break; }}
+    };
+    var activeChapterName = 'intro'; //Change this to match the first chapter of your story
+    function setActiveChapter(chapterName) {
+        if (chapterName === activeChapterName) return;
+        map.flyTo(chapters[chapterName]);
+        document.getElementById(chapterName).setAttribute('class', 'active');
+        document.getElementById(activeChapterName).setAttribute('class', '');
+        activeChapterName = chapterName;
+        
+      if (activeChapterName == 'esayan') { map.addLayer({
+      'id': 'esayan',
+      'type': 'fill',
+      'source': {
+          'type': 'geojson',
+          'data': {
+          'type': 'Feature',
+          'geometry': {
+          'type': 'Polygon',
+          'coordinates':
+      [
+          [
+            [
+              28.983832,
+              41.035107
+            ],
+            [
+              28.983936,
+              41.035187
+            ],
+            [
+              28.984244,
+              41.034965
+            ],
+            [
+              28.984159,
+              41.034871
+            ],
+            [
+              28.984071,
+              41.034925
+            ],
+            [
+              28.984089,
+              41.034959
+            ],
+            [
+              28.984051,
+              41.034961
+            ],
+            [
+              28.983832,
+              41.035107
+            ]
+          ]
+        ] } } },
+      'layout': {},
+      'paint': {
+      'fill-color': '#f88c99',
+      'fill-opacity': 0.7
+      }
+      }); }
+       
+      else if (activeChapterName == 'beyoglusk' ) { map.addLayer({
+      'id': 'ataturk',
+      'type': 'fill',
+      'source': {
+          'type': 'geojson',
+          'data': {
+          'type': 'Feature',
+          'geometry': {
+          'type': 'Polygon',
+          'coordinates':
+      [
+                     [
+            [
+              28.982564,
+              41.034477
+            ],
+            [
+              28.982663,
+              41.034539
+            ],
+            [
+              28.982738,
+              41.034477
+            ],
+            [
+              28.982634,
+              41.034408
+            ],
+            [
+              28.982564,
+              41.034477
+            ]
+          ]
+                    ] } } },
+      'layout': {},
+      'paint': {
+      'fill-color': '#f88c99',
+      'fill-opacity': 0.7
+      }
+      }); 
+      map.removeLayer('esayan');
+      }
+      else if (activeChapterName == 'tarlabasi') { map.removeLayer('beyoglusk'); }
+
+      else if (activeChapterName == 'ttm' ) { map.addLayer({
+      'id': 'ttm',
+      'type': 'fill',
+      'source': {
+          'type': 'geojson',
+          'data': {
+          'type': 'Feature',
+          'geometry': {
+          'type': 'Polygon',
+          'coordinates':
+      [
+      [
+            [
+              28.978006,
+              41.037977
+            ],
+            [
+              28.978041,
+              41.038002
+            ],
+            [
+              28.978124,
+              41.037946
+            ],
+            [
+              28.978095,
+              41.037904
+            ],
+            [
+              28.978006,
+              41.037977
+            ]
+          ]
+                    ] } } },
+      'layout': {},
+      'paint': {
+      'fill-color': '#f88c99',
+      'fill-opacity': 0.7
+      }
+      }); 
+      }
+      
+      else if (activeChapterName == 'galatasaray' ) { map.addLayer({
+      'id': 'galatasaray',
+      'type': 'fill',
+      'source': {
+          'type': 'geojson',
+          'data': {
+          'type': 'Feature',
+          'geometry': {
+          'type': 'Polygon',
+          'coordinates':
+      [
+      [
+            [
+              28.978028,
+              41.032775
+            ],
+            [
+              28.978227,
+              41.032936
+            ],
+            [
+              28.978456,
+              41.032786
+            ],
+            [
+              28.978701,
+              41.032975
+            ],
+            [
+              28.9785,
+              41.033131
+            ],
+            [
+              28.978681,
+              41.033286
+            ],
+            [
+              28.979369,
+              41.032808
+            ],
+            [
+              28.979509,
+              41.032921
+            ],
+            [
+              28.979605,
+              41.032837
+            ],
+            [
+              28.978831,
+              41.032208
+            ],
+            [
+              28.978562,
+              41.03241
+            ],
+            [
+              28.978522,
+              41.032378
+            ],
+            [
+              28.978274,
+              41.032546
+            ],
+            [
+              28.978315,
+              41.032587
+            ],
+            [
+              28.978028,
+              41.032775
+            ]
+          ]
+                    ] } } },
+      'layout': {},
+      'paint': {
+      'fill-color': '#f88c99',
+      'fill-opacity': 0.7
+      }
+      }); 
+      map.removeLayer('ttm');
+      }
+      else if (activeChapterName == 'postacilar' ) { map.addLayer({
+      'id': 'postacilar',
+      'type': 'fill',
+      'source': {
+          'type': 'geojson',
+          'data': {
+          'type': 'Feature',
+          'geometry': {
+          'type': 'Polygon',
+          'coordinates':
+      [
+        [
+            [
+              28.975719,
+              41.030542
+            ],
+            [
+              28.975702,
+              41.030492
+            ],
+            [
+              28.976416,
+              41.030336
+            ],
+            [
+              28.976347,
+              41.030151
+            ],
+            [
+              28.976699,
+              41.030099
+            ],
+            [
+              28.977258,
+              41.030096
+            ],
+            [
+              28.977252,
+              41.030144
+            ],
+            [
+              28.976738,
+              41.030137
+            ],
+            [
+              28.976407,
+              41.030182
+            ],
+            [
+              28.976478,
+              41.030373
+            ],
+            [
+              28.975719,
+              41.030542
+            ]
+          ]
+                ] } } },
+      'layout': {},
+      'paint': {
+      'fill-color': '#356fc0',
+      'fill-opacity': 0.6
+      }
+      }); 
+      map.removeLayer('galatasaray');
+      }
+
+      else if (activeChapterName == 'kumbaraci') { map.removeLayer('postacilar'); }
+
+      else if (activeChapterName == 'sur' ) { map.addLayer({
+      'id': 'sur',
+      'type': 'fill',
+      'source': {
+          'type': 'geojson',
+          'data': {
+          'type': 'Feature',
+          'geometry': { 
+          'type': 'Polygon',
+          'coordinates':
+      [
+         [
+            [
+              28.972705,
+              41.025118
+            ],
+            [
+              28.972762,
+              41.025065
+            ],
+            [
+              28.97305,
+              41.02518
+            ],
+            [
+              28.973005,
+              41.025239
+            ],
+            [
+              28.972705,
+              41.025118
+            ]
+          ],
+ 
+          [
+            [
+              28.97118,
+              41.022385
+            ],
+            [
+              28.97122,
+              41.022489
+            ],
+            [
+              28.971182,
+              41.022498
+            ],
+            [
+              28.971138,
+              41.022396
+            ],
+            [
+              28.97118,
+              41.022385
+            ]
+          ], 
+
+          [
+            [
+              28.969066,
+              41.025091
+            ],
+            [
+              28.969161,
+              41.025019
+            ],
+            [
+              28.968852,
+              41.024727
+            ],
+            [
+              28.968753,
+              41.02479
+            ],
+            [
+              28.969066,
+              41.025091
+            ]
+          ]
+        
+        ]         
+                 } } },
+      'layout': {},
+      'paint': {
+      'fill-color': '#356fc0',
+      'fill-opacity': 0.6
+      }
+      }); 
+      }
+      else if (activeChapterName == 'kamondo' ) { map.addLayer({
+      'id': 'kamondo',
+      'type': 'fill',
+      'source': {
+          'type': 'geojson',
+          'data': {
+          'type': 'Feature',
+          'geometry': {
+          'type': 'Polygon',
+          'coordinates':
+      [
+      [
+            [
+              28.973722,
+              41.023909
+            ],
+            [
+              28.973799,
+              41.02404
+            ],
+            [
+              28.973829,
+              41.024028
+            ],
+            [
+              28.973753,
+              41.023896
+            ],
+            [
+              28.973722,
+              41.023909
+            ]
+          ]
+                ] } } },
+      'layout': {},
+      'paint': {
+      'fill-color': '#356fc0',
+      'fill-opacity': 0.5
+      }
+      }); 
+      map.removeLayer('sur');
+      }
+      else if (activeChapterName == 'karakoy') { map.removeLayer('kamondo'); }
+      else return
+      
+    };
+        
+       
+
+    function isElementOnScreen(id) {
+        var element = document.getElementById(id);
+        var bounds = element.getBoundingClientRect();
+        return bounds.top < window.innerHeight && bounds.bottom > 0;
+    }
+
+</script>
+
+</body>
+</html>
